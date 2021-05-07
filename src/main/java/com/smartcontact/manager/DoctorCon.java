@@ -39,6 +39,7 @@ public class DoctorCon {
 			
 		
 		DoctorEntity b=doctorService.addDoctor(drEntity);
+		System.out.print("ok");
 		
 		return ResponseEntity.of(Optional.of(b));
 		}
