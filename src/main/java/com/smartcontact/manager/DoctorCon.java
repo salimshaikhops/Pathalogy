@@ -20,7 +20,7 @@ import com.smartcontact.manager.service.DoctorService;
 @RestController
 public class DoctorCon {
 
-	
+	sdddd
 	@Autowired(required=true)
 	private DoctorService doctorService;
 	
