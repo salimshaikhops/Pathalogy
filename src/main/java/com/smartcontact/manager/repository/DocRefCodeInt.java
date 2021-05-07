@@ -1,8 +1,8 @@
-package com.pathalogy.repository;
+package com.smartcontact.manager.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.pathalogy.entities.DocRefCode;
+import com.smartcontact.manager.entity.DocRefCode;
 
 public interface DocRefCodeInt extends CrudRepository<DocRefCode,Integer> {
 

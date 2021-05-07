@@ -1,8 +1,8 @@
-package com.pathalogy.repository;
+package com.smartcontact.manager.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.pathalogy.entities.Test;
+import com.smartcontact.manager.entity.Test;
 
 public interface TestInt extends CrudRepository<Test,Integer> {
 

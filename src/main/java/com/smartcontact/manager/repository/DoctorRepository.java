@@ -1,8 +1,8 @@
-package com.pathalogy.repository;
+package com.smartcontact.manager.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.pathalogy.entities.DoctorEntity;
+import com.smartcontact.manager.entity.DoctorEntity;
 
 public interface DoctorRepository extends CrudRepository<DoctorEntity,Integer> {
 

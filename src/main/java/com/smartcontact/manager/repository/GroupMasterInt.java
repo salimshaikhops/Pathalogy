@@ -1,8 +1,8 @@
-package com.pathalogy.repository;
+package com.smartcontact.manager.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.pathalogy.entities.GroupMaster;
+import com.smartcontact.manager.entity.GroupMaster;
 
 public interface GroupMasterInt extends CrudRepository<GroupMaster,Integer> {
 

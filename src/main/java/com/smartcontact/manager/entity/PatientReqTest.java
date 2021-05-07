@@ -1,4 +1,4 @@
-package com.pathalogy.entities;
+package com.smartcontact.manager.entity;
 
 import javax.annotation.Generated;
 import javax.persistence.Column;
