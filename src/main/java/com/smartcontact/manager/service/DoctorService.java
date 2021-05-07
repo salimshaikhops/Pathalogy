@@ -1,6 +1,8 @@
 
 package com.smartcontact.manager.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,24 @@ public class DoctorService {
 		
 		DoctorEntity drEntity2=doctorRepository.save(drEntity);
 		return drEntity2;
+	}
+
+	public List<DoctorEntity> getAllRecord() {
+		// TODO Auto-generated method stub
+		List<DoctorEntity>  listdr=(List<DoctorEntity> )doctorRepository.findAll();
+		return listdr;
+	}
+
+	public void delDoctorByID(int id) {
+		// TODO Auto-generated method stub
+		 doctorRepository.deleteById(id);
+		
+	}
+
+	public DoctorEntity updatedDoctro(DoctorEntity drEntity, int id) {
+		drEntity.setId(id);
+		 return doctorRepository.save(drEntity);
+		
 	}
 	
 	
