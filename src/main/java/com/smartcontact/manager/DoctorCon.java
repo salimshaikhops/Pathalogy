@@ -39,7 +39,6 @@ sdsd
 			
 		
 		DoctorEntity b=doctorService.addDoctor(drEntity);
-		System.out.print("ok");
 		
 		return ResponseEntity.of(Optional.of(b));
 		}
@@ -54,6 +53,8 @@ sdsd
 	@PostMapping("/delDoctor/{dr_id}")
 	public String delDoctorByID(@PathVariable("dr_id") int id)
 	{
+		System.out.print("ok");
+
 		doctorService.delDoctorByID(id);
 		return "record Delete";
 	}
