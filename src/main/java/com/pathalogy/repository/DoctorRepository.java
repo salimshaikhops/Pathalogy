@@ -1,5 +1,11 @@
 package com.pathalogy.repository;
 
-public interface DoctorRepository {
+import org.springframework.data.repository.CrudRepository;
 
+import com.pathalogy.entities.DoctorEntity;
+
+public interface DoctorRepository extends CrudRepository<DoctorEntity,Integer> {
+
+	
+	
 }
