@@ -53,7 +53,7 @@ public  PermissionService permissionService;
 	
 	
 	
-	@PostMapping("/delTestField/{permission_id}")
+	@PostMapping("/delPermission/{permission_id}")
 	public String delPermissionByID(@PathVariable("permission_id") int id)
 	{
 		System.out.print("ok");
@@ -67,8 +67,8 @@ public  PermissionService permissionService;
 	
 	
 	
-	@PostMapping("/updatedPermission/{testField_id}")
-	public ResponseEntity updatedPermission(@RequestBody Permission permissionEntity,@PathVariable("testField_id") int id)
+	@PostMapping("/updatedPermission/{permission_id}")
+	public ResponseEntity updatedPermission(@RequestBody Permission permissionEntity,@PathVariable("permission_id") int id)
 	{
 		try {
 			

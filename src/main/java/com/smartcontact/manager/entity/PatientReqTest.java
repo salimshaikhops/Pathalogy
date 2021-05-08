@@ -1,11 +1,15 @@
 package com.smartcontact.manager.entity;
 
+import java.util.List;
+
 import javax.annotation.Generated;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,7 +30,10 @@ public class PatientReqTest {
 	private String Phone_no;
 	
 	
-	
+	 @OneToMany(mappedBy = "patientReq", cascade = CascadeType.ALL)
+	    private List<PatientReqAndTest> patientReqList ;
+
+	 
 	
 	
 	public int getPatient_req_test_id() {
@@ -40,6 +47,12 @@ public class PatientReqTest {
 	}
 	public void setPatient_name(String patient_name) {
 		this.patient_name = patient_name;
+	}
+	public List<PatientReqAndTest> getPatientReqList() {
+		return patientReqList;
+	}
+	public void setPatientReqList(List<PatientReqAndTest> patientReqList) {
+		this.patientReqList = patientReqList;
 	}
 	public String getPatient_address() {
 		return patient_address;
@@ -71,8 +84,9 @@ public class PatientReqTest {
 	public void setPhone_no(String phone_no) {
 		Phone_no = phone_no;
 	}
+	
 	public PatientReqTest(int patient_req_test_id, String patient_name, String patient_address, String patient_dob,
-			String adhar_no, String dr_ref_code_id, String phone_no) {
+			String adhar_no, String dr_ref_code_id, String phone_no, List<PatientReqAndTest> patientReqList) {
 		super();
 		this.patient_req_test_id = patient_req_test_id;
 		this.patient_name = patient_name;
@@ -81,6 +95,7 @@ public class PatientReqTest {
 		this.adhar_no = adhar_no;
 		this.dr_ref_code_id = dr_ref_code_id;
 		Phone_no = phone_no;
+		this.patientReqList = patientReqList;
 	}
 	public PatientReqTest() {
 		super();

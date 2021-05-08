@@ -1,5 +1,8 @@
 package com.smartcontact.manager.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -32,13 +36,23 @@ public class Test {
 	private GroupMaster group_id;
 
 	
+	 @OneToMany(mappedBy = "test", cascade = CascadeType.ALL)
+	    private List<PatientReqAndTest> testList ;
+
 	
 	
 	
 	
 	
 	
-	
+	public List<PatientReqAndTest> getTestList() {
+		return testList;
+	}
+
+	public void setTestList(List<PatientReqAndTest> testList) {
+		this.testList = testList;
+	}
+
 	public int getTest_id() {
 		return test_id;
 	}
@@ -112,8 +126,10 @@ public class Test {
 	
 	
 
+	
+
 	public Test(int test_id, String test_name, int test_price, String adding_date, UserMaster user_mas_id,
-			boolean status, String description, GroupMaster group_id) {
+			boolean status, String description, GroupMaster group_id, List<PatientReqAndTest> testList) {
 		super();
 		this.test_id = test_id;
 		this.test_name = test_name;
@@ -123,6 +139,7 @@ public class Test {
 		this.status = status;
 		this.description = description;
 		this.group_id = group_id;
+		this.testList = testList;
 	}
 
 	public Test() {
