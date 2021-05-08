@@ -2,9 +2,12 @@ package com.smartcontact.manager.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,12 +21,24 @@ public class Test {
 	private String test_name;
 	private int test_price;
 	private String adding_date;
-	private int user_id;
+	
+	@OneToOne
+	private UserMaster user_mas_id;
+	
 	private boolean status;
 	private String description;
 	
-	private int group_id;
+	@ManyToOne(fetch=FetchType.LAZY)
+	private GroupMaster group_id;
 
+	
+	
+	
+	
+	
+	
+	
+	
 	public int getTest_id() {
 		return test_id;
 	}
@@ -56,13 +71,7 @@ public class Test {
 		this.adding_date = adding_date;
 	}
 
-	public int getUser_id() {
-		return user_id;
-	}
-
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
-	}
+	
 
 	public boolean isStatus() {
 		return status;
@@ -80,22 +89,37 @@ public class Test {
 		this.description = description;
 	}
 
-	public int getGroup_id() {
+	
+
+	
+
+	public UserMaster getUser_mas_id() {
+		return user_mas_id;
+	}
+
+	public void setUser_mas_id(UserMaster user_mas_id) {
+		this.user_mas_id = user_mas_id;
+	}
+
+	public GroupMaster getGroup_id() {
 		return group_id;
 	}
 
-	public void setGroup_id(int group_id) {
+	public void setGroup_id(GroupMaster group_id) {
 		this.group_id = group_id;
 	}
+	
+	
+	
 
-	public Test(int test_id, String test_name, int test_price, String adding_date, int user_id, boolean status,
-			String description, int group_id) {
+	public Test(int test_id, String test_name, int test_price, String adding_date, UserMaster user_mas_id,
+			boolean status, String description, GroupMaster group_id) {
 		super();
 		this.test_id = test_id;
 		this.test_name = test_name;
 		this.test_price = test_price;
 		this.adding_date = adding_date;
-		this.user_id = user_id;
+		this.user_mas_id = user_mas_id;
 		this.status = status;
 		this.description = description;
 		this.group_id = group_id;

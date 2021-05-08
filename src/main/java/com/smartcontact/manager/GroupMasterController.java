@@ -12,29 +12,34 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smartcontact.manager.entity.DocRefCode;
-import com.smartcontact.manager.entity.DoctorEntity;
+import com.smartcontact.manager.entity.GroupMaster;
+import com.smartcontact.manager.repository.GroupMasterInt;
 import com.smartcontact.manager.service.DocRefCodeService;
+import com.smartcontact.manager.service.GroupMasterService;
 
 @RestController
-public class DocRefController {
+public class GroupMasterController {
+
 	
-	public DocRefCodeService drRefCodeService;
 	
 	
-	@GetMapping("/showDrRefCode")
-	public List<DocRefCode> showDoctor()
+public GroupMasterService groupMasterService;
+	
+	
+	@GetMapping("/showGroup")
+	public List<GroupMaster> showGroup()
 	{
-		return drRefCodeService.getAllRecord();
+		List<GroupMaster> lis=(List<GroupMaster>) groupMasterService.getAllRecord();
 		
-		
+		return lis;
 	}
-	@PostMapping("/addRefCode")
-	public ResponseEntity addRefCode(@RequestBody  DocRefCode drEntity)
+	@PostMapping("/addGroup")
+	public ResponseEntity addRefCode(@RequestBody  GroupMaster groupEntity)
 	{
 		try {
 			
 		
-		DocRefCode b=drRefCodeService.addRefCode(drEntity);
+		GroupMaster b=groupMasterService.addGroupName(groupEntity);
 		
 		return ResponseEntity.of(Optional.of(b));
 		}
@@ -46,22 +51,22 @@ public class DocRefController {
 	
 	
 	
-	@PostMapping("/delRefcode/{drRef_id}")
-	public String delRefcodeByID(@PathVariable("drRef_id") int id)
+	@PostMapping("/delGroup/{group_id}")
+	public String delGroupByID(@PathVariable("group_id") int id)
 	{
 		System.out.print("ok");
 
-		drRefCodeService.deleteRefcodeById(id);
+		groupMasterService.deleteGroupById(id);
 		return "record Delete";
 	}
 	
 	
-	@PostMapping("/UpdatedRefCode/{drRef_id}")
-	public ResponseEntity updatedDoctor(@RequestBody DocRefCode drRefEntity,@PathVariable("drRef_id") int id)
+	@PostMapping("/UpdatedRefCode/{group_id}")
+	public ResponseEntity updatedGroup(@RequestBody GroupMaster groupEntity,@PathVariable("group_id") int id)
 	{
 		try {
 			
-			DocRefCode drEntity2=drRefCodeService.updatedDoctro(drRefEntity,id);
+			GroupMaster drEntity2=groupMasterService.updatedGroup(groupEntity,id);
 			return ResponseEntity.of(Optional.of(drEntity2));
 			
 		}
@@ -75,6 +80,6 @@ public class DocRefController {
 	}
 	
 	
-
+	
+	
 }
- 

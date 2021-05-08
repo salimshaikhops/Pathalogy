@@ -11,30 +11,33 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.smartcontact.manager.entity.DocRefCode;
-import com.smartcontact.manager.entity.DoctorEntity;
-import com.smartcontact.manager.service.DocRefCodeService;
+import com.smartcontact.manager.entity.Permission;
+import com.smartcontact.manager.entity.Test;
+import com.smartcontact.manager.service.PermissionService;
+import com.smartcontact.manager.service.TestService;
 
 @RestController
-public class DocRefController {
+public class TestController {
+
+
 	
-	public DocRefCodeService drRefCodeService;
+public TestService testService ;
 	
 	
-	@GetMapping("/showDrRefCode")
-	public List<DocRefCode> showDoctor()
+	@GetMapping("/showTest")
+	public List<Test> showTestq()
 	{
-		return drRefCodeService.getAllRecord();
+		List<Test> lis=(List<Test>) testService.getAllRecord();
 		
-		
+		return lis;
 	}
-	@PostMapping("/addRefCode")
-	public ResponseEntity addRefCode(@RequestBody  DocRefCode drEntity)
+	@PostMapping("/addTest")
+	public ResponseEntity addParmission(@RequestBody  Test testEntity)
 	{
 		try {
 			
 		
-		DocRefCode b=drRefCodeService.addRefCode(drEntity);
+			Test b=testService.addTest(testEntity);
 		
 		return ResponseEntity.of(Optional.of(b));
 		}
@@ -46,23 +49,23 @@ public class DocRefController {
 	
 	
 	
-	@PostMapping("/delRefcode/{drRef_id}")
-	public String delRefcodeByID(@PathVariable("drRef_id") int id)
+	@PostMapping("/delPermission/{test_id}")
+	public String delTestByID(@PathVariable("test_id") int id)
 	{
 		System.out.print("ok");
 
-		drRefCodeService.deleteRefcodeById(id);
+		testService.delTestByID(id);
 		return "record Delete";
 	}
 	
 	
-	@PostMapping("/UpdatedRefCode/{drRef_id}")
-	public ResponseEntity updatedDoctor(@RequestBody DocRefCode drRefEntity,@PathVariable("drRef_id") int id)
+	@PostMapping("/UpdatedTestById/{test_id}")
+	public ResponseEntity updatedTestByID(@RequestBody Test testEntity,@PathVariable("test_id") int id)
 	{
 		try {
 			
-			DocRefCode drEntity2=drRefCodeService.updatedDoctro(drRefEntity,id);
-			return ResponseEntity.of(Optional.of(drEntity2));
+			Test testEntity2=testService.updatedTestByID(testEntity,id);
+			return ResponseEntity.of(Optional.of(testEntity2));
 			
 		}
 		catch(Exception e){
@@ -75,6 +78,4 @@ public class DocRefController {
 	}
 	
 	
-
 }
- 

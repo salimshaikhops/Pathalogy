@@ -1,10 +1,13 @@
 package com.smartcontact.manager.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +21,8 @@ public class Permission {
 		
 		private String per_name;
 
+		
+		
 		public int getPer_id() {
 			return per_id;
 		}

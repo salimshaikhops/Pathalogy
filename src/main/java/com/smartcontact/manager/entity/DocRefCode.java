@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,7 +17,8 @@ public class DocRefCode {
 	@Column(name="dr_ref_id")
 	private int dr_ref_id;
 	
-	private int dr_id;
+	@OneToOne
+	private DoctorEntity doctor_id;
 	
 	private String ref_code;
 
@@ -28,13 +30,8 @@ public class DocRefCode {
 		this.dr_ref_id = dr_ref_id;
 	}
 
-	public int getDr_id() {
-		return dr_id;
-	}
+	
 
-	public void setDr_id(int dr_id) {
-		this.dr_id = dr_id;
-	}
 
 	public String getRef_code() {
 		return ref_code;
@@ -44,11 +41,21 @@ public class DocRefCode {
 		this.ref_code = ref_code;
 	}
 
-	public DocRefCode(int dr_ref_id, int dr_id, String ref_code) {
+	
+
+	public DocRefCode(int dr_ref_id, DoctorEntity doctor_id, String ref_code) {
 		super();
 		this.dr_ref_id = dr_ref_id;
-		this.dr_id = dr_id;
+		this.doctor_id = doctor_id;
 		this.ref_code = ref_code;
+	}
+
+	public DoctorEntity getDoctor_id() {
+		return doctor_id;
+	}
+
+	public void setDoctor_id(DoctorEntity doctor_id) {
+		this.doctor_id = doctor_id;
 	}
 
 	public DocRefCode() {

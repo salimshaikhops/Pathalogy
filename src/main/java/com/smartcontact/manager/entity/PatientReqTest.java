@@ -19,8 +19,16 @@ public class PatientReqTest {
 	private String patient_address;
 	private String patient_dob;
 	private String adhar_no;
+	
+	
 	private String dr_ref_code_id;
+	
 	private String Phone_no;
+	
+	
+	
+	
+	
 	public int getPatient_req_test_id() {
 		return patient_req_test_id;
 	}

@@ -1,10 +1,13 @@
 package com.smartcontact.manager.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -27,6 +30,11 @@ public class UserMaster {
 	private String Date_joining;
 	private String Date_leaving;
 	private boolean acc_status;
+	
+	@ManyToMany
+	private List<Permission> permission_list;
+	
+	
 	public int getUser_mas_id() {
 		return user_mas_id;
 	}
@@ -87,8 +95,17 @@ public class UserMaster {
 	public void setAcc_status(boolean acc_status) {
 		this.acc_status = acc_status;
 	}
+	
+	
+	public List<Permission> getPermission_list() {
+		return permission_list;
+	}
+	public void setPermission_list(List<Permission> permission_list) {
+		this.permission_list = permission_list;
+	}
 	public UserMaster(int user_mas_id, String username, String password, String dob, String phone_no, String adhar_no,
-			String alt_phone_no, String email, String date_joining, String date_leaving, boolean acc_status) {
+			String alt_phone_no, String email, String date_joining, String date_leaving, boolean acc_status,
+			List<Permission> permission_list) {
 		super();
 		this.user_mas_id = user_mas_id;
 		this.username = username;
@@ -101,6 +118,7 @@ public class UserMaster {
 		Date_joining = date_joining;
 		Date_leaving = date_leaving;
 		this.acc_status = acc_status;
+		this.permission_list = permission_list;
 	}
 	public UserMaster() {
 		super();
