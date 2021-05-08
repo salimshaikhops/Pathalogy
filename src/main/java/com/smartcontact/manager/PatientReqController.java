@@ -60,7 +60,7 @@ public PatienReqTestService  patientReqService;
 		System.out.print("ok");
 
 		patientReqService.delPatientReqByID(id);
-		return "record Delete";
+		return "record Delete sir";
 	}
 	
 	
