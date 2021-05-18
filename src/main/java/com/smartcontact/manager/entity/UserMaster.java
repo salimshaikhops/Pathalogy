@@ -29,7 +29,7 @@ public class UserMaster {
 	private String email;
 	private String Date_joining;
 	private String Date_leaving;
-	private boolean acc_status;
+	private int acc_status;
 	
 	@ManyToMany
 	private List<Permission> permission_list;
@@ -89,10 +89,10 @@ public class UserMaster {
 	public void setDate_leaving(String date_leaving) {
 		Date_leaving = date_leaving;
 	}
-	public boolean isAcc_status() {
+	public int isAcc_status() {
 		return acc_status;
 	}
-	public void setAcc_status(boolean acc_status) {
+	public void setAcc_status(int acc_status) {
 		this.acc_status = acc_status;
 	}
 	
@@ -104,7 +104,7 @@ public class UserMaster {
 		this.permission_list = permission_list;
 	}
 	public UserMaster(int user_mas_id, String username, String password, String dob, String phone_no, String adhar_no,
-			String alt_phone_no, String email, String date_joining, String date_leaving, boolean acc_status,
+			String alt_phone_no, String email, String date_joining, String date_leaving, int acc_status,
 			List<Permission> permission_list) {
 		super();
 		this.user_mas_id = user_mas_id;

@@ -19,12 +19,14 @@ public class TestFeild {
 	
 	@OneToOne
 	private Test test_id;
+	
+	private String test_feild_name;
 	private float baby_nor_val;
 	private float baby_high_val;
 	private float men_nor_val;
 	private float men_high_val;
-	private float humen_nor_val;
-	private float humen_high_val;
+	private float women_nor_val;
+	private float women_high_val;
 	public int getTest_field_id() {
 		return test_field_id;
 	}
@@ -32,6 +34,12 @@ public class TestFeild {
 		this.test_field_id = test_field_id;
 	}
 	
+	public String getTest_feild_name() {
+		return test_feild_name;
+	}
+	public void setTest_feild_name(String test_feild_name) {
+		this.test_feild_name = test_feild_name;
+	}
 	public float getBaby_nor_val() {
 		return baby_nor_val;
 	}
@@ -57,30 +65,19 @@ public class TestFeild {
 		this.men_high_val = men_high_val;
 	}
 	public float getHumen_nor_val() {
-		return humen_nor_val;
+		return women_nor_val;
 	}
 	public void setHumen_nor_val(float humen_nor_val) {
-		this.humen_nor_val = humen_nor_val;
+		this.women_nor_val = humen_nor_val;
 	}
 	public float getHumen_high_val() {
-		return humen_high_val;
+		return women_high_val;
 	}
 	public void setHumen_high_val(float humen_high_val) {
-		this.humen_high_val = humen_high_val;
+		this.women_high_val = humen_high_val;
 	}
 
-	public TestFeild(int test_field_id, Test test_id, float baby_nor_val, float baby_high_val, float men_nor_val,
-			float men_high_val, float humen_nor_val, float humen_high_val) {
-		super();
-		this.test_field_id = test_field_id;
-		this.test_id = test_id;
-		this.baby_nor_val = baby_nor_val;
-		this.baby_high_val = baby_high_val;
-		this.men_nor_val = men_nor_val;
-		this.men_high_val = men_high_val;
-		this.humen_nor_val = humen_nor_val;
-		this.humen_high_val = humen_high_val;
-	}
+	
 	public Test getTest_id() {
 		return test_id;
 	}

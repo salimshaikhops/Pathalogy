@@ -10,6 +10,7 @@ public class PathologyWebApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PathologyWebApplication.class, args);
+		
 	}
 
 }

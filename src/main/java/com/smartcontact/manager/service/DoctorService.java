@@ -40,6 +40,11 @@ public class DoctorService {
 		 return doctorRepository.save(drEntity);
 		
 	}
+
+	public DoctorEntity checkAuth(String dr_username, String dr_password) {
+		// TODO Auto-generated method stub
+		return doctorRepository.getDoctorBydr_usernameAnddr_password(dr_username,dr_password);
+	}
 	
 	
 }

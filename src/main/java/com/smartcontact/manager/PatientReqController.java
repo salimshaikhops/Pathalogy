@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smartcontact.manager.entity.PatientReqTest;
@@ -20,6 +21,7 @@ import com.smartcontact.manager.service.PatienReqTestService;
 
 
 @RestController
+@RequestMapping("admin/patientReq")
 public class PatientReqController {
 
 public PatienReqTestService  patientReqService;
@@ -68,8 +70,8 @@ public PatienReqTestService  patientReqService;
 	
 	
 	
-	@PostMapping("/updatedPermission/{testField_id}")
-	public ResponseEntity updatedPermission(@RequestBody PatientReqTest patientReqTestEntity,@PathVariable("testField_id") int id)
+	@PostMapping("/updatedPetietReq/{patient_id}")
+	public ResponseEntity updatedPermission(@RequestBody PatientReqTest patientReqTestEntity,@PathVariable("patient_id") int id)
 	{
 		try {
 			

@@ -6,10 +6,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smartcontact.manager.entity.DoctorEntity;
@@ -18,11 +20,39 @@ import com.smartcontact.manager.service.DoctorService;
 
 
 @RestController
+@RequestMapping("/doctor")
 public class DoctorCon {
-
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 	
 	@Autowired(required=true)
 	private DoctorService doctorService;
+	
+	
+	
+	@PostMapping("/logindr")
+	public DoctorEntity Log(@RequestBody DoctorEntity dr) throws Exception
+	
+	{ DoctorEntity dr1;
+		if(dr.getDr_username() !=null || dr.getDr_password() !=null)
+		{
+			
+			dr1 =doctorService.checkAuth(dr.getDr_username(), dr.getDr_password());
+			
+		}
+		else {
+			 dr1=null;
+		}
+		return dr1;
+		
+		
+	}
+
+	
+	
+	
+	
+	
 	
 	@GetMapping("/showDoctors")
 	public List<DoctorEntity> showDoctor()
@@ -37,8 +67,10 @@ public class DoctorCon {
 	{
 		try {
 			
-		
+			drEntity.setDr_password(drEntity.getDr_password());
 		DoctorEntity b=doctorService.addDoctor(drEntity);
+		
+		
 		
 		return ResponseEntity.of(Optional.of(b));
 		}

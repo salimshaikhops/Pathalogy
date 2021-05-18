@@ -39,4 +39,11 @@ public class UserMasterService {
 		return userMasterRepository.save(userMasterEntity) ;
 		
 	}
+
+	public  UserMaster checkAuth(String username, String password) {
+		// TODO Auto-generated method stub
+		return userMasterRepository.getUserMasterByusernameAndPassword(username, password) ;
+	}
+
+	
 }
