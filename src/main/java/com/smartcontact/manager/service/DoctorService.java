@@ -2,12 +2,15 @@
 package com.smartcontact.manager.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.smartcontact.manager.entity.DoctorEntity;
+import com.smartcontact.manager.entity.PatientReqTest;
 import com.smartcontact.manager.repository.DoctorRepository;
+import com.smartcontact.manager.repository.PatientReqInt;
 
 
 @Service
@@ -15,7 +18,8 @@ public class DoctorService {
 
 	@Autowired
 	private DoctorRepository doctorRepository;
-
+	
+	
 	public DoctorEntity addDoctor(DoctorEntity drEntity) {
 		// TODO Auto-generated method stub
 		
@@ -45,6 +49,20 @@ public class DoctorService {
 		// TODO Auto-generated method stub
 		return doctorRepository.getDoctorBydr_usernameAnddr_password(dr_username,dr_password);
 	}
+
+	public DoctorEntity updatedRedByDrId(int dr_id, String ref_code) {
+		// TODO Auto-generated method stub
+		Optional<DoctorEntity> drEntity=doctorRepository.findById(dr_id);
+		DoctorEntity drEntity2 =drEntity.get();
+		
+		drEntity2.setRef_code_id(ref_code);
+		
+		return doctorRepository.save(drEntity2);
+	}
+
+	
+
+	
 	
 	
 }

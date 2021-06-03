@@ -1,6 +1,7 @@
 package com.smartcontact.manager.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,6 +40,13 @@ public class GroupMasterService {
 			// TODO Auto-generated method stub
 			groupEntity.setGroup_id(id);
 			 return groupMasterRepository .save(groupEntity);
+		}
+
+		public GroupMaster getGroupById(int group_id) {
+			// TODO Auto-generated method stub
+			Optional<GroupMaster> groupMaster= groupMasterRepository.findById(group_id);
+			GroupMaster groupMaster2=groupMaster.get();
+			return groupMaster2;
 		}
 		
 		

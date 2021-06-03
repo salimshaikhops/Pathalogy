@@ -1,5 +1,6 @@
 package com.smartcontact.manager.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -20,7 +21,11 @@ public class Permission {
 		private int per_id;
 		
 		private String per_name;
-
+		
+		@ManyToMany
+		private List<UserMaster> user_list;
+		
+		
 		
 		
 		public int getPer_id() {
@@ -39,16 +44,30 @@ public class Permission {
 			this.per_name = per_name;
 		}
 
-		public Permission(int per_id, String per_name) {
+		public Permission(int per_id, String per_name, List<UserMaster> user_list) {
 			super();
 			this.per_id = per_id;
 			this.per_name = per_name;
+			this.user_list = user_list;
 		}
 
 		public Permission() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
+
+		public List<UserMaster> getUser_list() {
+			return user_list;
+		}
+
+		public void setUser_list(List<UserMaster> user_list) {
+			this.user_list = user_list;
+		}
+
+	
+
+		
+	
 		
 		
 }

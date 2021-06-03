@@ -83,6 +83,22 @@ public GroupMasterService groupMasterService;
 	}
 	
 	
+	@GetMapping("/getAllGroup")
+	public List<GroupMaster> getAll()
+	{
+		List<GroupMaster> groupList=groupMasterService.getAllRecord();
+		return groupList ;
+		
+	}
+	
+	@GetMapping("/getGroupById/{group_id}")
+	public GroupMaster getGroupById(@PathVariable("group_id") int group_id)
+	{
+		GroupMaster groupMaster=groupMasterService.getGroupById(group_id);
+		return groupMaster;
+		
+	}
+	
 	
 	
 }

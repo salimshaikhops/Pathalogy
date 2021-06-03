@@ -1,6 +1,7 @@
 package com.smartcontact.manager.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,6 +44,14 @@ public class UserMasterService {
 	public  UserMaster checkAuth(String username, String password) {
 		// TODO Auto-generated method stub
 		return userMasterRepository.getUserMasterByusernameAndPassword(username, password) ;
+	}
+
+	public UserMaster getUserById(int user_id) {
+		// TODO Auto-generated method stub
+		
+		Optional<UserMaster> userMaster=userMasterRepository.findById(user_id);
+		UserMaster userMaster2=userMaster.get();
+		return userMaster2;
 	}
 
 	

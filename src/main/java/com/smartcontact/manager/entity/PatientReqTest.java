@@ -23,15 +23,16 @@ public class PatientReqTest {
 	private String patient_address;
 	private String patient_dob;
 	private String adhar_no;
-	
-	
-	private String dr_ref_code_id;
+
+	private String dr_ref_code;
 	
 	private String Phone_no;
 	
 	
-	 @OneToMany(mappedBy = "patientReq", cascade = CascadeType.ALL)
-	    private List<PatientReqAndTest> patientReqList ;
+	/*
+	 * @OneToMany(mappedBy = "patientReq", cascade = CascadeType.ALL) private
+	 * List<PatientReqAndTest> patientReqList ;
+	 */
 
 	 
 	
@@ -48,12 +49,12 @@ public class PatientReqTest {
 	public void setPatient_name(String patient_name) {
 		this.patient_name = patient_name;
 	}
-	public List<PatientReqAndTest> getPatientReqList() {
-		return patientReqList;
-	}
-	public void setPatientReqList(List<PatientReqAndTest> patientReqList) {
-		this.patientReqList = patientReqList;
-	}
+
+	/*
+	 * public List<PatientReqAndTest> getPatientReqList() { return patientReqList; }
+	 * public void setPatientReqList(List<PatientReqAndTest> patientReqList) {
+	 * this.patientReqList = patientReqList; }
+	 */
 	public String getPatient_address() {
 		return patient_address;
 	}
@@ -73,10 +74,10 @@ public class PatientReqTest {
 		this.adhar_no = adhar_no;
 	}
 	public String getDr_ref_code_id() {
-		return dr_ref_code_id;
+		return dr_ref_code;
 	}
 	public void setDr_ref_code_id(String dr_ref_code_id) {
-		this.dr_ref_code_id = dr_ref_code_id;
+		this.dr_ref_code = dr_ref_code_id;
 	}
 	public String getPhone_no() {
 		return Phone_no;
@@ -86,16 +87,16 @@ public class PatientReqTest {
 	}
 	
 	public PatientReqTest(int patient_req_test_id, String patient_name, String patient_address, String patient_dob,
-			String adhar_no, String dr_ref_code_id, String phone_no, List<PatientReqAndTest> patientReqList) {
+			String adhar_no, String dr_ref_code, String phone_no /*List<PatientReqAndTest> patientReqList*/) {
 		super();
 		this.patient_req_test_id = patient_req_test_id;
 		this.patient_name = patient_name;
 		this.patient_address = patient_address;
 		this.patient_dob = patient_dob;
 		this.adhar_no = adhar_no;
-		this.dr_ref_code_id = dr_ref_code_id;
-		Phone_no = phone_no;
-		this.patientReqList = patientReqList;
+		this.dr_ref_code = dr_ref_code;
+		this.Phone_no = phone_no;
+		/* this.patientReqList = patientReqList; */
 	}
 	public PatientReqTest() {
 		super();

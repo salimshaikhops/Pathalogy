@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smartcontact.manager.entity.DoctorEntity;
+import com.smartcontact.manager.entity.Permission;
 import com.smartcontact.manager.entity.TestFeild;
 import com.smartcontact.manager.entity.UserMaster;
 import com.smartcontact.manager.service.TestFieldService;
@@ -65,6 +66,7 @@ public UserMaster Log(@RequestBody UserMaster user) throws Exception
 	{
 		try {
 			
+			
 		
 			UserMaster b=userMasterSerive.addUser(userMaster);
 		
@@ -106,8 +108,33 @@ public UserMaster Log(@RequestBody UserMaster user) throws Exception
 		
 	}
 	
+	@GetMapping("/getAllUser")
+	public List<UserMaster> getAllUser()
+	{
+		List<UserMaster> userList=userMasterSerive.getAllRecord();
+		return userList;
+	
+	}
 	
 	
 	
+	@GetMapping("/getUserById/{user_id}")
+	public UserMaster getUserById(@PathVariable("user_id") int user_id)
+	{
+		UserMaster userMaster=userMasterSerive.getUserById(user_id);
+		return userMaster;
+		
+	}
+	
+	@GetMapping("/getUserPermissionById/{user_id}")
+	public List<Permission> getUserPermissionById(@PathVariable("user_id") int user_id)
+	{
+		
+		UserMaster userMaster=userMasterSerive.getUserById(user_id);
+		List<Permission> permissionList=userMaster.getPermission_list();
+		
+		return permissionList ;
+		
+	}
 	
 }

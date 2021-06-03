@@ -28,6 +28,7 @@ public class PatienReqTestService {
 		// TODO Auto-generated method stub
 		
 		PatientReqTest patientReqTestEntity2=patientReqRepository.save(patientReqTestEntity);
+		
 		return patientReqTestEntity2;
 	}
 
@@ -42,5 +43,9 @@ public class PatienReqTestService {
 		
 		return patientReqRepository.save(patientReqTestEntity);
 	}
-	
+	public  List<PatientReqTest>  getAllRecordByRefCode(String dr_ref_code) {
+		// TODO Auto-generated method stub
+		 List<PatientReqTest> listOfPatient=patientReqRepository.getAll(dr_ref_code);
+		return listOfPatient;
+	}
 }

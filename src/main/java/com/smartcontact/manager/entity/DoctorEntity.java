@@ -16,7 +16,6 @@ public class DoctorEntity {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="doctor_id")
 	private int id;
-	
 	private String  dr_name;
 	private String dr_address;
 	private String hospital_name;
@@ -26,7 +25,7 @@ public class DoctorEntity {
 	private String dr_username;
 	private String dr_password;
 	private String adhar_no;
-	private String ref_code_id;
+	private String ref_code;
 	public int getId() {
 		return id;
 	}
@@ -88,13 +87,13 @@ public class DoctorEntity {
 		this.adhar_no = adhar_no;
 	}
 	public String getRef_code_id() {
-		return ref_code_id;
+		return ref_code;
 	}
 	public void setRef_code_id(String ref_code_id) {
-		this.ref_code_id = ref_code_id;
+		this.ref_code = ref_code_id;
 	}
 	public DoctorEntity(int id, String dr_name, String dr_address, String hospital_name, String phone_no, String email,
-			String date_regi, String dr_username, String dr_password, String adhar_no, String ref_code_id) {
+			String date_regi, String dr_username, String dr_password, String adhar_no, String ref_code) {
 		super();
 		this.id = id;
 		this.dr_name = dr_name;
@@ -106,7 +105,7 @@ public class DoctorEntity {
 		this.dr_username = dr_username;
 		this.dr_password = dr_password;
 		this.adhar_no = adhar_no;
-		this.ref_code_id = ref_code_id;
+		this.ref_code = ref_code;
 	}
 	public DoctorEntity() {
 		super();

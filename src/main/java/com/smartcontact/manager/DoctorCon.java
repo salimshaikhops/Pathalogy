@@ -10,48 +10,24 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smartcontact.manager.entity.DoctorEntity;
 import com.smartcontact.manager.service.DoctorService;
 
-
+import com.smartcontact.manager.entity.PatientReqTest;
 
 @RestController
-@RequestMapping("/doctor")
+@RequestMapping("/dr")
 public class DoctorCon {
-	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
+	
 	
 	@Autowired(required=true)
 	private DoctorService doctorService;
-	
-	
-	
-	@PostMapping("/logindr")
-	public DoctorEntity Log(@RequestBody DoctorEntity dr) throws Exception
-	
-	{ DoctorEntity dr1;
-		if(dr.getDr_username() !=null || dr.getDr_password() !=null)
-		{
-			
-			dr1 =doctorService.checkAuth(dr.getDr_username(), dr.getDr_password());
-			
-		}
-		else {
-			 dr1=null;
-		}
-		return dr1;
-		
-		
-	}
-
-	
-	
-	
-	
 	
 	
 	@GetMapping("/showDoctors")
@@ -115,4 +91,20 @@ public class DoctorCon {
 	}
 	
 	
-}
+	@PutMapping("/updatedRefCode/{dr_id}/{ref_code}")
+	public DoctorEntity updatedRefCode(@PathVariable  int dr_id,@PathVariable String ref_code)
+	{
+		
+		DoctorEntity drEntity=doctorService.updatedRedByDrId(dr_id,ref_code);
+		System.out.println(drEntity);
+		return drEntity;
+	}
+	
+	
+	
+	}
+	
+	
+	
+	
+

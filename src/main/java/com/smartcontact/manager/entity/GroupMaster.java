@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="group_master")
 public class GroupMaster {
@@ -20,6 +22,7 @@ public class GroupMaster {
 	private int group_id;
 	private String group_name;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="group_id")
 	private List<Test> test;
 	

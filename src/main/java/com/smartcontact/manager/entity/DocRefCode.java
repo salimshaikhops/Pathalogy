@@ -17,8 +17,7 @@ public class DocRefCode {
 	@Column(name="dr_ref_id")
 	private int dr_ref_id;
 	
-	@OneToOne
-	private DoctorEntity doctor_id;
+
 	
 	private String ref_code;
 
@@ -43,21 +42,15 @@ public class DocRefCode {
 
 	
 
-	public DocRefCode(int dr_ref_id, DoctorEntity doctor_id, String ref_code) {
+	public DocRefCode(int dr_ref_id ,String ref_code) {
 		super();
 		this.dr_ref_id = dr_ref_id;
-		this.doctor_id = doctor_id;
+		
 		this.ref_code = ref_code;
 	}
 
-	public DoctorEntity getDoctor_id() {
-		return doctor_id;
-	}
-
-	public void setDoctor_id(DoctorEntity doctor_id) {
-		this.doctor_id = doctor_id;
-	}
-
+	
+	
 	public DocRefCode() {
 		super();
 		// TODO Auto-generated constructor stub

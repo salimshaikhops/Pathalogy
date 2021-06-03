@@ -52,7 +52,7 @@ public TestService testService ;
 	
 	
 	
-	@PostMapping("/delPermission/{test_id}")
+	@PostMapping("/delTest/{test_id}")
 	public String delTestByID(@PathVariable("test_id") int id)
 	{
 		System.out.print("ok");
@@ -79,6 +79,8 @@ public TestService testService ;
 	
 		
 	}
+	
+	
 	
 	
 }

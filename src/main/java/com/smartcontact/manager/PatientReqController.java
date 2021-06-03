@@ -3,6 +3,7 @@ package com.smartcontact.manager;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,7 @@ import com.smartcontact.manager.service.PatienReqTestService;
 @RequestMapping("admin/patientReq")
 public class PatientReqController {
 
+	@Autowired
 public PatienReqTestService  patientReqService;
 
 	@GetMapping("/patientReq")
@@ -41,7 +43,9 @@ public PatienReqTestService  patientReqService;
 	{
 		try {
 			
+		System.out.println(patientReqTestEntity.getDr_ref_code_id());
 		
+		System.out.println();
 			PatientReqTest b=patientReqService.addPatientReq(patientReqTestEntity);
 		
 		return ResponseEntity.of(Optional.of(b));
@@ -87,5 +91,20 @@ public PatienReqTestService  patientReqService;
 	
 		
 	}
+	
+	
+	@GetMapping("/getPatientInfByRefCode/{ref_code}")
+	public List<PatientReqTest> getPatientInfByRefCode(@PathVariable String ref_code)
+	{
+		 List<PatientReqTest> patinetListByDr=patientReqService.getAllRecordByRefCode(ref_code);
+		
+		return patinetListByDr;
+	}
+	
+	
+	
+	
+	
+	
 
 }
