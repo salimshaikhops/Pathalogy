@@ -3,6 +3,7 @@ package com.smartcontact.manager;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.smartcontact.manager.entity.Test;
 import com.smartcontact.manager.entity.TestFeild;
 
 import com.smartcontact.manager.service.TestFieldService;
@@ -22,7 +23,7 @@ import com.smartcontact.manager.service.TestFieldService;
 public class TestFieldController {
 
 
-	
+@Autowired
 public TestFieldService testFieldService;
 	
 	
@@ -78,5 +79,21 @@ public TestFieldService testFieldService;
 	
 		
 	}
+	
+	
+	
+	@GetMapping("/getFieldByTestId/{test_id}")
+	public List<TestFeild> getTestFieldByTestId(@PathVariable("test_id") Test test_id)
+	{
+		
+		List<TestFeild> testFeildList=testFieldService.getTestFeildByTestId(test_id);
+		return testFeildList;
+		
+		
+	}
+	
+	
+	
+	
 	
 }

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.smartcontact.manager.entity.Permission;
+import com.smartcontact.manager.entity.ReportEntity;
+import com.smartcontact.manager.entity.Test;
 import com.smartcontact.manager.entity.TestFeild;
 import com.smartcontact.manager.repository.TestFieldInt;
 
@@ -41,6 +43,16 @@ public class TestFieldService {
 		return testFieldRepository.save(testFieldEntity) ;
 		
 	}
+
+	
+
+	public List<TestFeild> getTestFeildByTestId(Test test_id) {
+		// TODO Auto-generated method stub
+		List<TestFeild> testFieldList=testFieldRepository.findTestfeildByTestId(test_id);
+		return testFieldList;
+	}
+
+
 	
 	
 	

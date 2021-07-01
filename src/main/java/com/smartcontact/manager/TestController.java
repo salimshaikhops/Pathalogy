@@ -81,6 +81,25 @@ public TestService testService ;
 	}
 	
 	
+	@GetMapping("/getTestByGroupId/{group_id}")
+	public List<Test> getTestByGroupId(@PathVariable("group_id") int group_id)
+	{
+		List<Test> testList=testService.getTestByGroupId(group_id);
+		return testList;
+		
+	}
+	
+	
+	
+	
+	@GetMapping("/getTestByTestCode/{test_code}")
+	public Test getTestBycode(@PathVariable("test_code") String test_code)
+	{
+		
+		Test t=testService.getTestByCode(test_code);
+		System.out.println(t.getUser_master().getEmail());
+		return t;
+	}
 	
 	
 }

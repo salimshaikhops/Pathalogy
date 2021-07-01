@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -17,8 +18,9 @@ public class TestFeild {
 	@Column(name="test_filed_id")
 	private int test_field_id;
 	
-	@OneToOne
+	@ManyToOne
 	private Test test_id;
+
 	
 	private String test_feild_name;
 	private float baby_nor_val;

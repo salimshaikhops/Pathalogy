@@ -1,6 +1,7 @@
 package com.smartcontact.manager.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,5 +48,18 @@ public class PatienReqTestService {
 		// TODO Auto-generated method stub
 		 List<PatientReqTest> listOfPatient=patientReqRepository.getAll(dr_ref_code);
 		return listOfPatient;
+	}
+
+	public PatientReqTest getRecordById(int id) {
+		// TODO Auto-generated method stub
+		Optional<PatientReqTest> patientRe=  patientReqRepository.findById(id);
+		PatientReqTest patientInf=patientRe.get();
+		return patientInf;
+	}
+
+
+	public List<PatientReqTest> getAllRecordByPhoneNo(String phone_no) {
+		// TODO Auto-generated method stub
+		 return patientReqRepository.getAllPatientByPhoneNo(phone_no) ;
 	}
 }

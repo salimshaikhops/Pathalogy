@@ -1,5 +1,6 @@
 package com.smartcontact.manager.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,14 +10,17 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="test")
-public class Test {
+public class Test  {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -28,8 +32,13 @@ public class Test {
 	private int test_price;
 	private String adding_date;
 	
+	
 	@ManyToOne
 	private UserMaster user_master;
+	
+	
+	@ManyToMany
+	private List<PatientReqTest> patinetReqTest;
 	
 	
 	
@@ -39,6 +48,11 @@ public class Test {
 	@ManyToOne(fetch=FetchType.LAZY)
 	private GroupMaster group_id;
 
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="test_id")
+	private List<TestFeild> test_feild;
+	
 	public int getTest_id() {
 		return test_id;
 	}
@@ -111,8 +125,27 @@ public class Test {
 		this.group_id = group_id;
 	}
 
+
+
+	public List<PatientReqTest> getPatinetReqTest() {
+		return patinetReqTest;
+	}
+
+	public void setPatinetReqTest(List<PatientReqTest> patinetReqTest) {
+		this.patinetReqTest = patinetReqTest;
+	}
+
+	public List<TestFeild> getTest_feild() {
+		return test_feild;
+	}
+
+	public void setTest_feild(List<TestFeild> test_feild) {
+		this.test_feild = test_feild;
+	}
+
 	public Test(int test_id, String test_name, String test_code, int test_price, String adding_date,
-			UserMaster user_master, boolean status, String description, GroupMaster group_id) {
+			UserMaster user_master, List<PatientReqTest> patinetReqTest, boolean status, String description,
+			GroupMaster group_id, List<TestFeild> test_feild) {
 		super();
 		this.test_id = test_id;
 		this.test_name = test_name;
@@ -120,9 +153,11 @@ public class Test {
 		this.test_price = test_price;
 		this.adding_date = adding_date;
 		this.user_master = user_master;
+		this.patinetReqTest = patinetReqTest;
 		this.status = status;
 		this.description = description;
 		this.group_id = group_id;
+		this.test_feild = test_feild;
 	}
 
 	public Test() {

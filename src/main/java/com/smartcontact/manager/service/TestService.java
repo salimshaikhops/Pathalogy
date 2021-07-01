@@ -1,5 +1,6 @@
 package com.smartcontact.manager.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,26 @@ public class TestService {
 		
 		return testRepository.save(testEntity);
 	}
+
+	public List<Test> getTestByGroupId(int group_id) {
+		// TODO Auto-generated method stub
+		List<Test> listTest=(List<Test>) testRepository.findAll();
+		List<Test> listTestByGroupById=new ArrayList<Test>();
+		System.out.println(group_id);
+		for(Test t:listTest)
+		{
+			if(t.getGroup_id().getGroup_id() == group_id) 
+				listTestByGroupById.add(t);
+		}
+		return listTestByGroupById;
+	}
+
+	public Test getTestByCode(String test_code) {
+		// TODO Auto-generated method stub
+		Test t=testRepository.getTestByCode(test_code);
+		return t;
+	}
+
+	
 	
 }

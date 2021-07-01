@@ -13,6 +13,13 @@ public interface PatientReqInt extends CrudRepository<PatientReqTest,Integer>{
 
 	@Query("select u from PatientReqTest u where u.dr_ref_code =:ref_code")
 	public List<PatientReqTest> getAll(@Param("ref_code") String dr_ref_code);
+
+	@Query("select u from PatientReqTest u where u.Phone_no=:phone_no")
+	public List<PatientReqTest> getAllPatientByPhoneNo(@Param("phone_no") String phone_no);
+
+	
+
+
 	
 	
 

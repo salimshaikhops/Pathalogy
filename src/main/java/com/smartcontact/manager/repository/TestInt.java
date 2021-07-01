@@ -10,7 +10,10 @@ import com.smartcontact.manager.entity.Test;
 
 public interface TestInt extends CrudRepository<Test,Integer> {
 
+	@Query("select t from Test t where t.test_code=:test_code")
+	public Test getTestByCode(@Param("test_code") String test_code);
+
 	
 
-
+	
 }
