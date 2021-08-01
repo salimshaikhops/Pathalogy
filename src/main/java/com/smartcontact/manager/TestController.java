@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,7 @@ import com.smartcontact.manager.entity.Test;
 import com.smartcontact.manager.service.PermissionService;
 import com.smartcontact.manager.service.TestService;
 
-@RestController
+@Controller
 @RequestMapping("admin/testControll")
 public class TestController {
 
@@ -27,6 +28,13 @@ public class TestController {
 public TestService testService ;
 	
 	
+@RequestMapping("AddTestUI")
+public String AddTest()
+{
+	return "AddTestUi";
+}
+
+
 	@GetMapping("/showTest")
 	public List<Test> showTestq()
 	{

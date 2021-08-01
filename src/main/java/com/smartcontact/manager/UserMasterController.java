@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +21,8 @@ import com.smartcontact.manager.entity.UserMaster;
 import com.smartcontact.manager.service.TestFieldService;
 import com.smartcontact.manager.service.UserMasterService;
 
-@RestController
+@Controller
+
 @RequestMapping("admin/userMaster")
 public class UserMasterController {
 
@@ -31,7 +33,36 @@ public class UserMasterController {
 	@Autowired
 public UserMasterService userMasterSerive;
 	
+@RequestMapping("/loginBydoctor")
+public String  DoctroLogin()
+{
+	return "login";
+	
+}
 
+
+
+
+@RequestMapping("/LoginByAdminorUser")
+public String AdminLogin()
+{
+	return "LoginByAdminorUser";
+}
+	
+
+
+@RequestMapping("/AssignPermission")
+public String AssignPermission()
+{
+	return "AssignPermission";
+}
+
+
+@RequestMapping("/UserRegistration")
+public String UsrtRegistration()
+{
+	return "UserRegistration";
+}
 
 
 @PostMapping("/loginuser")
