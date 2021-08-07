@@ -14,7 +14,7 @@ public interface BilingRepository extends   CrudRepository<Bilingentity,Integer>
 	
 	
 	
-	@Query("select t from Bilingentity t where t.patient_req_id=:patient_id")
+	@Query("select t from Bilingentity t where t.patient_req_test_id=:patient_id")
 	public List<Bilingentity> getBillByPatientId(@Param("patient_id") int patient_id);
 	
 	

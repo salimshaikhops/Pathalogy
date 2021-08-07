@@ -12,7 +12,7 @@ import com.smartcontact.manager.entity.ReportEntity;
 public interface ReportEntityRepository  extends CrudRepository<ReportEntity,Integer> {
 
 	
-	@Query("select u from ReportEntity u where u.patient_id=:patient_id")
+	@Query("select u from ReportEntity u where u.patient_req_test_id=:patient_id")
 	public List<ReportEntity> getReportById(@Param("patient_id") int patient_id);
 
 	
