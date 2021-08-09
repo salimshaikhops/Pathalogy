@@ -20,7 +20,7 @@ import com.smartcontact.manager.repository.GroupMasterInt;
 import com.smartcontact.manager.service.DocRefCodeService;
 import com.smartcontact.manager.service.GroupMasterService;
 
-@Controller
+@RestController
 @RequestMapping("admin/group")
 public class GroupMasterController {
 

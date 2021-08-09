@@ -19,7 +19,7 @@ import com.smartcontact.manager.entity.Test;
 import com.smartcontact.manager.service.PermissionService;
 import com.smartcontact.manager.service.TestService;
 
-@Controller
+@RestController
 @RequestMapping("admin/testControll")
 public class TestController {
 

@@ -1,6 +1,7 @@
 package com.smartcontact.manager;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,9 @@ import com.smartcontact.manager.entity.UserMaster;
 import com.smartcontact.manager.service.TestFieldService;
 import com.smartcontact.manager.service.UserMasterService;
 
-@Controller
+@RestController
 
-@RequestMapping("admin/userMaster")
+@RequestMapping("/admin/userMaster")
 public class UserMasterController {
 
 	
@@ -66,13 +67,14 @@ public String UsrtRegistration()
 
 
 @PostMapping("/loginuser")
-public UserMaster Log(@RequestBody UserMaster user) throws Exception
+public UserMaster Log(@RequestBody Map<String, String> user) throws Exception
 
 { UserMaster user1;
-	if(user.getUsername() !=null || user.getPassword() !=null)
+	if(user.get("username") !=null || user.get("password") !=null)
 	{
 		
-		user1 =userMasterSerive.checkAuth(user.getUsername(), user.getPassword());
+		user1 =userMasterSerive.checkAuth(user.get("username"), user.get("password"));
+		
 		
 	}
 	else {

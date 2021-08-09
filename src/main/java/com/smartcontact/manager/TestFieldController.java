@@ -19,7 +19,7 @@ import com.smartcontact.manager.entity.TestFeild;
 
 import com.smartcontact.manager.service.TestFieldService;
 
-@Controller
+@RestController
 @RequestMapping("admin/testFieldControll")
 public class TestFieldController {
 
