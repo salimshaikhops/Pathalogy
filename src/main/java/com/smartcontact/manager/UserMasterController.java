@@ -1,5 +1,6 @@
 package com.smartcontact.manager;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -31,7 +32,7 @@ public class UserMasterController {
 	
 	
 	
-	@Autowired
+@Autowired
 public UserMasterService userMasterSerive;
 	
 @RequestMapping("/loginBydoctor")
@@ -67,7 +68,7 @@ public String UsrtRegistration()
 
 
 @PostMapping("/loginuser")
-public UserMaster Log(@RequestBody Map<String, String> user) throws Exception
+public List Log(@RequestBody Map<String, String> user) throws Exception
 
 { UserMaster user1;
 	if(user.get("username") !=null || user.get("password") !=null)
@@ -80,7 +81,10 @@ public UserMaster Log(@RequestBody Map<String, String> user) throws Exception
 	else {
 		 user1=null;
 	}
-	return user1;
+	List li =new ArrayList();
+	li.add(user1.getUser_mas_id());
+	li.add(user1.getUsername());
+	return li;
 	
 	
 }

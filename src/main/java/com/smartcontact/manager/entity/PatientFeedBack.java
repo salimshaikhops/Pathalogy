@@ -7,14 +7,27 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="feedback")
 public class PatientFeedBack {
 	
-	public PatientFeedBack(int feedbackId, int patinetId, String content, int star, Date date, String response,
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="feedback_id")
+private int id;
+private int patinetId;
+private String  content;
+private int star;
+private Date date;
+private String response;
+private Date resDate;
+	
+	public PatientFeedBack(int id, int patinetId, String content, int star, Date date, String response,
 			Date resDate) {
 		super();
-		this.feedbackId = feedbackId;
+		this.id = id;
 		this.patinetId = patinetId;
 		this.content = content;
 		this.star = star;
@@ -22,22 +35,8 @@ public class PatientFeedBack {
 		this.response = response;
 		this.resDate = resDate;
 	}
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="feedbackId")
-private int feedbackId;
-private int patinetId;
-private String  content;
-private int star;
-private Date date;
-private String response;
-private Date resDate;
-public int getFeedbackId() {
-	return feedbackId;
-}
-public void setFeedbackId(int feedbackId) {
-	this.feedbackId = feedbackId;
-}
+	
+
 public int getPatinetId() {
 	return patinetId;
 }
@@ -76,8 +75,14 @@ public void setResDate(Date resDate) {
 }
 @Override
 public String toString() {
-	return "PatientFeedBack [feedbackId=" + feedbackId + ", patinetId=" + patinetId + ", content=" + content + ", star="
+	return "PatientFeedBack [feedbackId=" + id + ", patinetId=" + patinetId + ", content=" + content + ", star="
 			+ star + ", date=" + date + ", response=" + response + ", resDate=" + resDate + "]";
+}
+public int getId() {
+	return id;
+}
+public void setId(int id) {
+	this.id = id;
 }
 
 

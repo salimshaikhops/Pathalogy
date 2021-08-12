@@ -20,7 +20,7 @@ public class QueryController {
 	
 	
 	
-	@PostMapping
+	@PostMapping("/addQuery")
 	public QueryEntity AddFeedback(QueryEntity queryEntity)
 	{
 		QueryEntity QueryEntity2=queryService.addQuery(queryEntity);

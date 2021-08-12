@@ -19,7 +19,7 @@ public class FeedbackController {
 	
 	
 	
-	@PostMapping
+	@PostMapping("/addFeedback")
 	public PatientFeedBack AddFeedback(PatientFeedBack patientFeebackEntity)
 	{
 		PatientFeedBack patientFeebackEntity2=feedbackService.addFeedback(patientFeebackEntity);

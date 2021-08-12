@@ -1,6 +1,8 @@
 package com.smartcontact.manager;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +23,9 @@ import com.smartcontact.manager.entity.DoctorEntity;
 import com.smartcontact.manager.service.DoctorService;
 
 import com.smartcontact.manager.entity.PatientReqTest;
+import com.smartcontact.manager.entity.UserMaster;
 
-@Controller
+@RestController
 @RequestMapping("/dr")
 public class DoctorCon {
 	
@@ -35,6 +38,34 @@ public class DoctorCon {
 	{
 		return "DoctorRegistration";
 	}
+	
+	
+	
+
+@PostMapping("/loginDr")
+public List Log(@RequestBody Map<String, String> dr) throws Exception
+
+{ DoctorEntity drentity;
+	if(dr.get("dr_Username") !=null || dr.get("dr_Password") !=null)
+	{
+		drentity =doctorService.checkAuth(dr.get("dr_Username"), dr.get("dr_Password"));
+	}
+	else {
+		drentity=null;
+	}
+	List li =new ArrayList();
+	li.add(drentity.getDr_name());
+
+	li.add(drentity.getDr_username());
+
+	li.add(drentity.getDr_name());
+
+	li.add(drentity.getRef_code());
+	return li;
+	
+	
+}
+	
 	
 	
 	@GetMapping("/showDoctors")

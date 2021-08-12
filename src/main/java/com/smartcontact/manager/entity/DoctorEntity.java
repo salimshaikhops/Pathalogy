@@ -12,6 +12,23 @@ import javax.persistence.Table;
 public class DoctorEntity {
 
 	
+	public DoctorEntity(int id, String dr_name, String dr_address, String hospital_name, String phone_no, String email,
+			String date_regi, String dr_username, String dr_password, String adhar_no, String ref_code, int status) {
+		super();
+		this.id = id;
+		this.dr_name = dr_name;
+		this.dr_address = dr_address;
+		this.hospital_name = hospital_name;
+		this.phone_no = phone_no;
+		this.email = email;
+		Date_regi = date_regi;
+		this.dr_username = dr_username;
+		this.dr_password = dr_password;
+		this.adhar_no = adhar_no;
+		this.ref_code = ref_code;
+		this.status = status;
+	}
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="doctor_id")
@@ -26,6 +43,7 @@ public class DoctorEntity {
 	private String dr_password;
 	private String adhar_no;
 	private String ref_code;
+	private int status;
 	public int getId() {
 		return id;
 	}
@@ -92,24 +110,22 @@ public class DoctorEntity {
 	public void setRef_code_id(String ref_code_id) {
 		this.ref_code = ref_code_id;
 	}
-	public DoctorEntity(int id, String dr_name, String dr_address, String hospital_name, String phone_no, String email,
-			String date_regi, String dr_username, String dr_password, String adhar_no, String ref_code) {
-		super();
-		this.id = id;
-		this.dr_name = dr_name;
-		this.dr_address = dr_address;
-		this.hospital_name = hospital_name;
-		this.phone_no = phone_no;
-		this.email = email;
-		Date_regi = date_regi;
-		this.dr_username = dr_username;
-		this.dr_password = dr_password;
-		this.adhar_no = adhar_no;
-		this.ref_code = ref_code;
-	}
+	
 	public DoctorEntity() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	public String getRef_code() {
+		return ref_code;
+	}
+	public void setRef_code(String ref_code) {
+		this.ref_code = ref_code;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	
 	
